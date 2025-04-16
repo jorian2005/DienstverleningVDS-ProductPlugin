@@ -97,4 +97,5 @@ Voor vragen of ondersteuning kun je contact opnemen met de ontwikkelaar:
 
 ## Licentie
 
-Deze plugin is intellectueel eigendom van **Dienstverlening van der Sluis** en mag niet worden verspreid of hergebruikt zonder expliciete toestemming.
+Deze plugin is gelicenseerd onder de **GNU General Public License v3.0**. 
+Voor meer informatie over de licentievoorwaarden, zie [LICENSE](https://www.gnu.org/licenses/gpl-3.0.html).
