@@ -17,6 +17,8 @@ require_once VDS_PLUGIN_PATH . 'includes/templates.php';
 require_once VDS_PLUGIN_PATH . 'includes/enqueue.php';
 require_once VDS_PLUGIN_PATH . 'includes/settings.php';
 
+require_once VDS_PLUGIN_PATH . 'plugin-updater.php';
+
 require_once VDS_PLUGIN_PATH . 'pages/shortcode.php';
 
 add_action('init', 'vds_register_product_cpt');
