@@ -3,8 +3,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-echo '<meta name="viewport" content="width=device-width, initial-scale=1">' . "\n";
-
 function dvds_show_last_three_products() {
     $args = array(
         'post_type'      => 'vds_product',
