@@ -4,7 +4,7 @@ function vds_add_viewport_meta_tag() {
 }
 add_action('wp_head', 'vds_add_viewport_meta_tag');
 echo '<style>';
-echo file_get_contents(plugin_dir_path(__FILE__) . 'assets/css/single-product.css');
+echo file_get_contents(VDS_PLUGIN_PATH . 'assets/css/single-product.css');
 echo '</style>';
 get_header();
 

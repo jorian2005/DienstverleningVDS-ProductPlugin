@@ -1,7 +1,7 @@
 <?php
 echo '<meta name="viewport" content="width=device-width, initial-scale=1">' . "\n";
 echo '<style>';
-echo file_get_contents(plugin_dir_path(__FILE__) . 'assets/css/archive-product.css');
+echo file_get_contents(VDS_PLUGIN_PATH . 'assets/css/archive-product.css');
 echo '</style>';
 
 get_header();
