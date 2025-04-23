@@ -33,13 +33,19 @@ function dvds_show_last_three_products() {
             echo '<div class="vds-product-image">';
             if ($mainImage) {
                 echo '<img src="' . esc_url($mainImage) . '" alt="' . esc_attr(get_the_title()) . '">';
-            } else {
-                echo '<p class="italic">Geen afbeelding beschikbaar</p>';
             }
             echo '</div>';
             echo '<div class="product-title">' . get_the_title() . '</div>';
-            if ($price) {
-                echo '<div class="product-price">Prijs: €' . esc_html($price) . '</div>';
+            if (!empty($price)) {
+                $price = sanitize_text_field($price);
+                if (ctype_digit($price)) {
+                    $price = number_format((float)$price, 2, ',', '.');
+                    echo '<div class="product-price">Prijs: €' . esc_html($price) . '</div>';
+                } else {
+                    echo '<div class="product-price">Prijs op aanvraag</div>';
+                }
+            } else {
+                echo '<div class="product-price">Prijs op aanvraag</div>';
             }
             echo '</a>';
         }
