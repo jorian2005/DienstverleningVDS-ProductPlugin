@@ -4,22 +4,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function dvds_show_last_three_products() {
+    $amount = get_option('vds_setting_amount', 4);
+    $title = get_option('vds_setting_heading_title', 'Nieuwste producten');
     $args = array(
         'post_type'      => 'vds_product',
-        'posts_per_page' => 4,
+        'posts_per_page' => $amount,
+        'post_status'    => 'publish',
         'orderby'        => 'date',
         'order'          => 'DESC',
     );
 
     $query = new WP_Query($args);
-
+    
     ob_start();
 
     if ($query->have_posts()) {
         echo '<style>';
         echo file_get_contents(VDS_PLUGIN_PATH . 'assets/css/shortcode.css');
         echo '</style>';
-        echo '<h2>Nieuwste producten</h2>';
+        echo '<h2 class="vds-product-title">' . esc_html($title) . '</h2>';
         echo '<ul class="vds-products">';
         while ($query->have_posts()) {
             $query->the_post();
