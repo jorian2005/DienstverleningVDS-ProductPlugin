@@ -28,13 +28,25 @@ function jb_plugin_updater_page() {
 }
 
 function jb_update_plugin_from_github() {
-    $download_url = 'https://github.com/jorian2005/DienstverleningVDS-ProductPlugin/archive/refs/heads/main.zip';
-    $tmp_file = download_url($download_url);
 
-    if (is_wp_error($tmp_file)) {
-        echo '<div class="notice notice-error"><p>Fout bij downloaden: ' . esc_html($tmp_file->get_error_message()) . '</p></div>';
-        return;
+    function delete_directory($dir) {
+        if (!is_dir($dir)) return;
+            $items = array_diff(scandir($dir), array('.', '..'));
+            foreach ($items as $item) {
+                $path = $dir . DIRECTORY_SEPARATOR . $item;
+                is_dir($path) ? delete_directory($path) : unlink($path);
+            }
+            rmdir($dir);
+        }
+        $download_url = 'https://github.com/jorian2005/DienstverleningVDS-ProductPlugin/archive/refs/heads/main.zip';
+        $tmp_file = download_url($download_url);
+
+    $target_dir = $extract_to . '/dienstverleningvds-productplugin';
+    if (is_dir($target_dir)) {
+        delete_directory($target_dir);
     }
+    rename($extract_to . '/DienstverleningVDS-ProductPlugin-main', $target_dir);
+    echo '<div class="notice notice-success"><p>Plugin succesvol bijgewerkt vanaf GitHub!</p></div>';
 
     $extract_to = WP_PLUGIN_DIR;
     $unzip_result = unzip_file($tmp_file, $extract_to);
