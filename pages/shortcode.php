@@ -21,7 +21,7 @@ function dvds_show_last_three_products() {
         echo '<style>';
         echo file_get_contents(VDS_PLUGIN_PATH . 'assets/css/shortcode.css');
         echo '</style>';
-        echo '<h2>Aanbevolen producten</h2>';
+        echo '<h2>Nieuwste producten</h2>';
         echo '<ul class="vds-products">';
         while ($query->have_posts()) {
             $query->the_post();
