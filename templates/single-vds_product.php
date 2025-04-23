@@ -1,5 +1,4 @@
 <?php
-echo '<meta name="viewport" content="width=device-width, initial-scale=1">' . "\n";
 function vds_add_viewport_meta_tag() {
     echo '<meta name="viewport" content="width=device-width, initial-scale=1">' . "\n";
 }
@@ -124,11 +123,40 @@ $extraImages = get_post_meta(get_the_ID(), '_vds_product_images', true);
         <h1><?php the_title(); ?></h1>
         <?php 
         $prijs = esc_html(get_post_meta(get_the_ID(), '_vds_prijs', true));
+        $hefhoogte = esc_html(get_post_meta(get_the_ID(), '_vds_hefhoogte', true));
+        $doorrijdhoogte = esc_html(get_post_meta(get_the_ID(), '_vds_doorrijdhoogte', true));
+        $draaiuren = esc_html(get_post_meta(get_the_ID(), '_vds_draaiuren', true));
+        $bouwjaar = esc_html(get_post_meta(get_the_ID(), '_vds_bouwjaar', true));
+        $lader = esc_html(get_post_meta(get_the_ID(), '_vds_lader', true));
+        $accu = esc_html(get_post_meta(get_the_ID(), '_vds_accu', true));
+
+
         if (ctype_digit($prijs)) : ?>
             <p class="vds-product-prijs">€<?php echo $prijs; ?></p>
         <?php else : ?>
             <p class="vds-product-prijs">Prijs op aanvraag</p>
-        <?php endif; ?>
+        <?php endif;
+        ?> <div class="vds-product-details"> <?php
+        if (!empty($hefhoogte)) {
+            echo '<p class="vds-product-hefhoogte"><b>Hefhoogte:</b> ' . $hefhoogte . '</p>';
+        }
+        if (!empty($doorrijdhoogte)) {
+            echo '<p class="vds-product-doorrijdhoogte"><b>Doorrijdhoogte:</b> ' . $doorrijdhoogte . '</p>';
+        }
+        if (!empty($draaiuren)) {
+            echo '<p class="vds-product-draaiuren"><b>Draaiuren:</b> ' . $draaiuren . '</p>';
+        }
+        if (!empty($bouwjaar)) {
+            echo '<p class="vds-product-bouwjaar"><b>Bouwjaar:</b> ' . $bouwjaar . '</p>';
+        }
+        if (!empty($lader)) {
+            echo '<p class="vds-product-lader"><b>Lader:</b> ' . $lader . '</p>';
+        }
+        if (!empty($accu)) {
+            echo '<p class="vds-product-accu"><b>Accu:</b> ' . $accu . '</p>';
+        }
+        ?>
+        </div>
         <div class="vds-omschrijving"><?php the_content(); ?></div>
         <div class="vds-product-buttons">
             <a href="/contact/" class="vds-button">Neem contact op</a>

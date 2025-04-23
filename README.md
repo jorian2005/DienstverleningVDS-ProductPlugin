@@ -2,8 +2,6 @@
 
 De **VDS Producten Plugin** is speciaal ontwikkeld voor Dienstverlening van der Sluis om eenvoudig producten te beheren en te presenteren op een WordPress-website. De plugin biedt ondersteuning voor aangepaste posttypes, meta-boxen voor productinformatie, en op maat gemaakte templates.
 
-## Functionaliteiten
-
 - **Aangepast Posttype**  
   Registreert een speciaal posttype `vds_product` voor het beheren van producten.
 
@@ -97,5 +95,4 @@ Voor vragen of ondersteuning kun je contact opnemen met de ontwikkelaar:
 
 ## Licentie
 
-Deze plugin is gelicenseerd onder de **GNU General Public License v3.0**. 
-Voor meer informatie over de licentievoorwaarden, zie [LICENSE](https://www.gnu.org/licenses/gpl-3.0.html).
+Deze plugin is gelicenseerd onder de **GNU General Public License v3.0**. Voor meer informatie over de licentievoorwaarden, zie [LICENSE](https://www.gnu.org/licenses/gpl-3.0.html).
