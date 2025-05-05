@@ -7,6 +7,25 @@ ul.vds-products {
     justify-content: space-around !important;
 }
 
+@media screen and (max-width: 1200px) {
+    ul.vds-products {
+        flex-wrap: wrap;
+        justify-content: start !important;
+        gap: 10px;
+        margin: 0 auto;
+
+        a {
+            .vds-product-image img {
+                max-height: 200px;
+            }
+
+            .product-title {
+                line-break: anywhere;
+            }
+        }
+    }
+}
+
 .vds-products li {
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
@@ -55,3 +74,4 @@ ul.vds-products {
     font-style: italic;
     color: #888;
 }
+
